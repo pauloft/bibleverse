@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+form {
+  display: inline-block;
+  margin-top: 30px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button[type="button"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #007bff;
+  color: #fff;
+  margin-left: 10px;
+}
+
+#suggestionList {
+  position: absolute;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 1;
+  margin-top: 5px;
+  padding: 5px;
+  text-align: left;
+}
+
+#suggestionList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#suggestionList li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#suggestionList li:hover {
+  background-color: #f5f5f5;
+}
