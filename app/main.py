@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import FastAPI, Request, Depends
+from fastapi import FastAPI, Request, Depends, HTTPException
 
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -29,3 +29,24 @@ async def show_search_form(request: Request, session: AsyncSession = Depends(get
     """ Display the search form """
     context = {'request': request}
     return templates.TemplateResponse("index.html",context)
+
+
+@app.get("/suggestions", response_model=List[VersesReadWithBook])
+async def get_suggestions(q: str, session: AsyncSession = Depends(get_session)) -> List[str]:
+    verses = await session.execute(
+        select(Verses)
+        .filter(Verses.text.like(f"%{q}%"))
+        .distinct()
+        .order_by(Verses.text)
+        .limit(10)
+    ).all()
+
+    if not verses:
+        raise HTTPException(status_code=404, detail='No results found')
+    # return [verse.text for verse in verses]
+    return [verse[0].text for verse in verses]
+
+
+@app.get("/searchtext")
+async def searchtext():
+    pass
