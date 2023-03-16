@@ -1,4 +1,4 @@
-aiosqlite==0.18.0
+# aiosqlite==0.18.0
 fastapi==0.94.0
 Jinja2==3.1.2
 sqlmodel==0.0.8

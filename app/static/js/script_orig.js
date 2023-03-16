@@ -37,16 +37,6 @@ function fetchSuggestions(inputValue) {
   }
 }
 
-// // try this
-// fetch('your-api-endpoint')
-//   .then(response => response.json())
-//   .then(data => {
-//     const listItems = data.map(verse => `<li>${verse.book.name} ${verse.chapter}:${verse.number} ${verse.text.trim()}</li>`);
-//     const suggestionsUL = document.getElementById('suggestionUL');
-//     suggestionsUL.innerHTML = listItems.join('');
-//   })
-//   .catch(error => console.log(error));
-
 function displaySuggestions(suggestions) {
   suggestionList.innerHTML = "";
 
